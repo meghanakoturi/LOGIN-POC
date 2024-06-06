@@ -10,7 +10,7 @@ This implementation leverages Eclipse as the Integrated Development Environment 
 
 The build process involves Maven, which generates a WAR (Web Application Archive) file upon compilation. This WAR file encapsulates the entire project, including necessary dependencies and configurations. Subsequently, the WAR file is deployed to a Tomcat server for hosting and execution.
 
-Through this project, we aim to exemplify the practical application of three-tier architecture in web development, emphasizing modularity, scalability, and maintainability. By following this architectural pattern, we ensure a structured and extensible solution capable of meeting evolving requirements and accommodating future enhancements.
+Through this project, we aim to exemplify the practical application of three-tier architecture in web development, emphasizing modularity, scalability, and maintainability. By following this architectural pattern, we ensure a structure d and extensible solution capable of meeting evolving requirements and accommodating future enhancements.
 
 # Technologies Used:
 * Java (JDK 8)
@@ -32,12 +32,12 @@ Login/
 - │         └── protobuf-java-3.21.9.jar
 - ├── src/
 -          └── main
--                    ├── webapp
--                        ├── WEB-INF
--                        └── dashboard.jsp
--                        └── dashboard2.jsp
--                        ├── index.jsp
--                        └── verification.jsp
+-              ├─ webapp
+-                   ├─ WEB-INF
+-                   └── dashboard.jsp
+-                   └── dashboard2.jsp
+-                   ├── index.jsp
+-                   └── verification.jsp
 - ├── target
 -       └── Login
 -       └── m2e-wtp
