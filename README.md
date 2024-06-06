@@ -22,30 +22,30 @@ Through this project, we aim to exemplify the practical application of three-tie
 # Project Structure:
 
 Login/
-│
-├── src/main/resources
-├── JRE System Library [JavaSE-1.8] 
-├── Maven Dependencies
-│         └── javax.servlet-api-3.1.0.jar
-│         ├─   junit-3.8.1.jar
-│         └──mysql-connector-j-8.0.33.jar
-│         └── protobuf-java-3.21.9.jar
-├── src/
-          └── main
-                     ├── webapp
-                                   ├── WEB-INF
-                                   └── dashboard.jsp
-                                   └── dashboard2.jsp
-                                   ├── index.jsp
-                                   └── verification.jsp
-├── target
-            └── Login
-            └── m2e-wtp
-            ├── maven-archiver
-                     ├── Login.war
-            └── pom.xml  
-└── Servers
-            └──Tomcat v8.5 Server at localhost-config
+- │
+- ├── src/main/resources
+- ├── JRE System Library [JavaSE-1.8] 
+- ├── Maven Dependencies
+- │         └── javax.servlet-api-3.1.0.jar
+- │         ├─   junit-3.8.1.jar
+- │         └──mysql-connector-j-8.0.33.jar
+- │         └── protobuf-java-3.21.9.jar
+- ├── src/
+-          └── main
+-                    ├── webapp
+-                        ├── WEB-INF
+-                        └── dashboard.jsp
+-                        └── dashboard2.jsp
+-                        ├── index.jsp
+-                        └── verification.jsp
+- ├── target
+-       └── Login
+-       └── m2e-wtp
+-       ├── maven-archiver
+-       ├── Login.war
+-       └── pom.xml  
+- └── Servers
+-        └──Tomcat v8.5 Server at localhost-config
 
 
 # Login:
