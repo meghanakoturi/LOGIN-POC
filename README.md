@@ -134,6 +134,8 @@ In the verfication.jsp file we are mentioning the localhost means the msql insta
 * Set Goals:
   1.In the "Goals" field, enter clean install (or any other goals you want to execute during the build process). Apply,Run.
 Now, when you right-click on your Maven project and select "Run As" > "Maven Build", Eclipse will execute the specified goals (clean install) and generate the WAR file in the specified output directory. With the path search for the war file in your local machine.
+Path of the war file
+`C:\Users\Meghana\.m2\repository\com\jsp\Login\0.0.1-SNAPSHOT\Login-0.0.1-SNAPSHOT.war`
 
 # Deployment:
 * Connect to Your EC2 Instance:
