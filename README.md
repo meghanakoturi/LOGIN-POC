@@ -73,6 +73,7 @@ This directory might be related to the Maven Eclipse Plugin (m2e-wtp), which hel
 This directory seems to contain configuration files related to the Tomcat v8.5 Server configured on your local machine. It's likely managed by your IDE (e.g., Eclipse) to handle server configurations.
 
 # Data Configuration:
+
 1. EC2 instance setup:
 * Launch an EC2 instance with the desired specifications (e.g., instance type, operating system).
 * Ensure that the security group associated with the instance allows inbound connections on the MySQL port (default is 3306) from the necessary IP addresses or ranges.
@@ -88,5 +89,42 @@ This directory seems to contain configuration files related to the Tomcat v8.5 S
 * Start the MySQL service and enable it to start on boot:
  `sudo systemctl start mysqld`
  `sudo systemctl enable mysqld`
+
+3. MySQL Configuration:
+* Retrieve the root password:
+  `sudo grep 'temporary password' /var/log/mysqld.log`
+* Log in to MYSQL:
+ `mysql -u root -p`
+* Change the root password:
+  `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MyNewPass1!';`
+* Create a new database for your application:
+  `CREATE DATABASE loginapp;`
+  ` USE loginapp;`
+* Create tables:
+  `CREATE TABLE login (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+    );`
+  ` CREATE TABLE user (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+    );`
+* Insert data into the created tables:
+  `INSERT INTO login (username, password)
+   VALUES ('meghana', 'meghana123');`
+  `INSERT INTO users (username, password)
+   VALUES ('localhost', 'Localhost@123');`
+
+4. User Setup:
+* Create a new MySQL user and grant appropriate privileges on the database
+  ` CREATE USER 'db_user'@'44.222.220.136' IDENTIFIED BY 'Apple@3005';
+    GRANT ALL PRIVILEGES ON loginapp.* TO 'db_user'@'44.222.220.136';
+    FLUSH PRIVILEGES;`
+
+    
+
+
 
 
