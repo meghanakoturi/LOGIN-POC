@@ -13,11 +13,11 @@ The build process involves Maven, which generates a WAR (Web Application Archive
 Through this project, we aim to exemplify the practical application of three-tier architecture in web development, emphasizing modularity, scalability, and maintainability. By following this architectural pattern, we ensure a structured and extensible solution capable of meeting evolving requirements and accommodating future enhancements.
 
 # Technologies Used:
-Java (JDK 8)
-Apache Maven
-Apache Tomcat
-JSP (JavaServer Pages)
-MySQL (hosted on AWS)
+* Java (JDK 8)
+* Apache Maven
+* Apache Tomcat
+* JSP (JavaServer Pages)
+* MySQL (hosted on AWS)
 
 # Project Structure:
 
@@ -46,6 +46,7 @@ Login/
             └── pom.xml  
 └── Servers
             └──Tomcat v8.5 Server at localhost-config
+
 
 # Login:
 This is likely the root directory of your project.
