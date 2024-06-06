@@ -81,12 +81,12 @@ This directory seems to contain configuration files related to the Tomcat v8.5 S
 * Connect to your EC2 instance using SSH.
 * Update the package repository: `sudo yum update`.
 * Install MySQL server:
-- `sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022`
-- `wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm`
-- `sudo yum localinstall -y mysql57-community-release-el7-8.noarch.rpm`
-- `sudo yum install -y mysql-community-server`
+ `sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022`
+ `wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm`
+ `sudo yum localinstall -y mysql57-community-release-el7-8.noarch.rpm`
+ `sudo yum install -y mysql-community-server`
 * Start the MySQL service and enable it to start on boot:
-- `sudo systemctl start mysqld`
-- `sudo systemctl enable mysqld`
+ `sudo systemctl start mysqld`
+ `sudo systemctl enable mysqld`
 
 
