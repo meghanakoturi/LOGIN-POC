@@ -71,3 +71,6 @@ This directory might be related to the Maven Eclipse Plugin (m2e-wtp), which hel
 
 # Servers/Tomcat v8.5 Server at localhost-config: 
 This directory seems to contain configuration files related to the Tomcat v8.5 Server configured on your local machine. It's likely managed by your IDE (e.g., Eclipse) to handle server configurations.
+
+# Data Configuration:
+1. EC2 instance setup:
