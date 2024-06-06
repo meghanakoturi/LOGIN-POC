@@ -31,13 +31,13 @@ Through this project, we aim to exemplify the practical application of three-tie
 - │         └──mysql-connector-j-8.0.33.jar
 - │         └── protobuf-java-3.21.9.jar
 - ├── src/
--          └── main
--              ├─ webapp
--                   ├─ WEB-INF
--                   └── dashboard.jsp
--                   └── dashboard2.jsp
--                   ├── index.jsp
--                   └── verification.jsp
+-      └── main
+-           ├─ webapp
+-               ├─ WEB-INF
+-               └── dashboard.jsp
+-               └── dashboard2.jsp
+-               ├── index.jsp
+-               └── verification.jsp
 - ├── target
 -       └── Login
 -       └── m2e-wtp
