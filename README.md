@@ -124,7 +124,7 @@ This directory seems to contain configuration files related to the Tomcat v8.5 S
    `FLUSH PRIVILEGES;`
 Here localhost is the other instance I'd where we deploy the war file
 
-4. Implementation:
+# Implementation:
 * Login System Overview:
   1. The login system involves a user entering their credentials (e.g., username and password) into a form.
   2. These credentials are then verified against the user data stored in a MySQL database running on your EC2 instance.
@@ -134,7 +134,7 @@ The flow from the JSP pages (index.jsp, verification.jsp, dashboard.jsp) remains
 In the verfication.jsp file we are mentioning the localhost means the msql instance I'd and the user which we created
 ` Connection con = DriverManager.getConnection("jdbc:mysql://18.208.201.221:3306/loginapp?serverTimezone=UTC", "db_user", "Apple@123");`
 
-5. Build Process:
+# Build Process:
 * Configure Maven Build:
   1.Right-click on your Maven project in the Project Explorer.
   2.Navigate to "Run As" > "Run Configurations...".
@@ -143,7 +143,7 @@ In the verfication.jsp file we are mentioning the localhost means the msql insta
   1.In the "Goals" field, enter clean install (or any other goals you want to execute during the build process). Apply,Run.
 Now, when you right-click on your Maven project and select "Run As" > "Maven Build", Eclipse will execute the specified goals (clean install) and generate the WAR file in the specified output directory. With the path search for the war file in your local machine.
 
-6. Deployment:
+# Deployment:
 * Connect to Your EC2 Instance:
 Open MobaXterm and establish an SSH connection to your EC2 instance. Enter the necessary details such as hostname/IP address, username, and password or SSH key.
 * Navigate to the Directory Containing the WAR File:
@@ -161,7 +161,7 @@ In the dialog that appears, specify the destination directory on your EC2 instan
 * Password- meghana123
 After successful login you will get redirect to other page with the URL `http://44.222.220.136:8080/dashboard.jsp`
 
-7. Testing:
+# Testing:
 * Login Functionality Testing:
 Verify that the login form is displayed correctly on the index.jsp page.
 * Test various scenarios:
@@ -187,7 +187,7 @@ Verify that session management works correctly, ensuring that users remain authe
 Test your application across different web browsers (e.g., Chrome, Firefox, Safari) and devices (desktop, tablet, mobile) to ensure compatibility and responsiveness.
 Pay attention to any layout issues, UI discrepancies, or functionality gaps that may arise on specific browsers or devices.
 
-8. Challenges Faced:
+# Challenges Faced:
 * Setting up MySQL on EC2:
 Initially, configuring MySQL on the EC2 instance posed challenges, including installation, setup, and database creation.
 Managing database security and user permissions required additional attention.
@@ -210,7 +210,7 @@ Continuous integration and deployment (CI/CD) pipelines were explored to streaml
 Collaborating with team members and seeking support from peers and online communities helped address specific challenges encountered during the development and deployment phases.
 Utilizing AWS support resources and documentation for EC2 and Tomcat troubleshooting proved beneficial in resolving deployment-related issues.
 
-9. Conclusion:
+# Conclusion:
 In this project, we successfully developed a web application with login functionality using a three-tier architecture. The application allowed users to log in securely and access a dashboard page based on their credentials. We utilized Java for backend logic, JSP for frontend presentation, and MySQL for database management.
 
 Through this project, we learned valuable skills in setting up and configuring MySQL on an EC2 instance, integrating MySQL with a Java web application, and deploying the application to Tomcat on the EC2 instance. We gained insights into database connectivity, error handling, and deployment automation.
