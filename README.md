@@ -74,3 +74,19 @@ This directory seems to contain configuration files related to the Tomcat v8.5 S
 
 # Data Configuration:
 1. EC2 instance setup:
+* Launch an EC2 instance with the desired specifications (e.g., instance type, operating system).
+* Ensure that the security group associated with the instance allows inbound connections on the MySQL port (default is 3306) from the necessary IP addresses or ranges.
+
+2. MySQL Installation:
+* Connect to your EC2 instance using SSH.
+* Update the package repository: `sudo yum update`.
+* Install MySQL server:
+- `sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022`
+- `wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm`
+- `sudo yum localinstall -y mysql57-community-release-el7-8.noarch.rpm`
+- `sudo yum install -y mysql-community-server`
+* Start the MySQL service and enable it to start on boot:
+- `sudo systemctl start mysqld`
+- `sudo systemctl enable mysqld`
+
+
