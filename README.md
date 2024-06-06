@@ -21,7 +21,7 @@ Through this project, we aim to exemplify the practical application of three-tie
 
 # Project Structure:
 
-Login/
+- Login/
 - │
 - ├── src/main/resources
 - ├── JRE System Library [JavaSE-1.8] 
