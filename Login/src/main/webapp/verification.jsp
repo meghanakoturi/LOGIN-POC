@@ -12,7 +12,7 @@
     if (username != null && password != null) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://18.208.201.221:3306/loginapp?serverTimezone=UTC", "db_user", "Apple@123");
+            Connection con = DriverManager.getConnection("jdbc:mysql://44.196.56.88:3306/loginapp?serverTimezone=UTC", "db_user", "Apple@123");
             PreparedStatement ps = con.prepareStatement("SELECT * FROM login WHERE Username=? AND Password=?");
             ps.setString(1, username);
             ps.setString(2, password);
