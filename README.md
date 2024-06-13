@@ -22,21 +22,21 @@ Through this project, we aim to exemplify the practical application of three-tie
 
 # Installing Eclipse
 1.Download Eclipse:
-*Visit the Eclipse Downloads page.
-*Download the "Eclipse IDE for Java EE Developers" package.
+* Visit the Eclipse Downloads page.
+* Download the "Eclipse IDE for Java EE Developers" package.
 2.Install Eclipse:
-*Unzip the downloaded file.
-*Open the unzipped folder and run the eclipse.exe (Windows) or eclipse (Mac/Linux) executable file.
-*Select a workspace directory (this is where your projects will be stored).
+* Unzip the downloaded file.
+* Open the unzipped folder and run the eclipse.exe (Windows) or eclipse (Mac/Linux) executable file.
+* Select a workspace directory (this is where your projects will be stored).
 
 # Setting Up Your Project in Eclipse
 1. Create a New Maven Project:
-*Open Eclipse.
-*Go to File > New > Other....
-*Select Maven > Maven Project and click Next.
-*Select the default workspace location and click Next.
-*Choose maven-archetype-webapp and click Next.
-*Fill in the Group Id (e.g., com.example) and Artifact Id (e.g., Login), then click Finish.
+* Open Eclipse.
+* Go to File > New > Other....
+* Select Maven > Maven Project and click Next.
+* Select the default workspace location and click Next.
+* Choose maven-archetype-webapp and click Next.
+* Fill in the Group Id (e.g., com.example) and Artifact Id (e.g., Login), then click Finish.
 
 # Project Directory Structure:
 
