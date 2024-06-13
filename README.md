@@ -130,12 +130,13 @@ Through this project, we aim to exemplify the practical application of three-tie
 
 4. User Setup:
 * Create a new MySQL user and grant appropriate privileges on the database:
-  ` CREATE USER 'db_user'@'44.222.220.136' IDENTIFIED BY 'Apple@3005';`
-  `GRANT ALL PRIVILEGES ON loginapp.* TO 'db_user'@'44.222.220.136';`
+  ` CREATE USER 'db_user'@'tomcatpublicipaddress' IDENTIFIED BY 'Apple@3005';`
+  `GRANT ALL PRIVILEGES ON loginapp.* TO 'db_user'@'tomcatpublicipaddress';`
    `FLUSH PRIVILEGES;`
 Here localhost is the other instance I'd where we deploy the war file
 
 # Implementation:
+
 * Login System Overview:
   1. The login system involves a user entering their credentials (e.g., username and password) into a form.
   2. These credentials are then verified against the user data stored in a MySQL database running on your EC2 instance.
@@ -143,9 +144,10 @@ Here localhost is the other instance I'd where we deploy the war file
      error message is displayed.
 The flow from the JSP pages (index.jsp, verification.jsp, dashboard.jsp) remains the same, but the backend code in verification.jsp would connect to your MySQL database running on your EC2 instance to perform the authentication.
 In the verfication.jsp file we are mentioning the localhost means the msql instance I'd and the user which we created
-` Connection con = DriverManager.getConnection("jdbc:mysql://18.208.201.221:3306/loginapp?serverTimezone=UTC", "db_user", "Apple@123");`
+` Connection con = DriverManager.getConnection("jdbc:mysql://mysqlinstancepublicipaddress:3306/loginapp?serverTimezone=UTC", "db_user", "Apple@123");`
 
 # Build Process:
+
 * Configure Maven Build:
   1.Right-click on your Maven project in the Project Explorer.
   2.Navigate to "Run As" > "Run Configurations...".
@@ -157,8 +159,16 @@ Path of the war file
 `C:\Users\Meghana\.m2\repository\com\jsp\Login\0.0.1-SNAPSHOT\Login-0.0.1-SNAPSHOT.war`
 
 # Deployment:
+
 * Connect to Your EC2 Instance:
 Open MobaXterm and establish an SSH connection to your EC2 instance. Enter the necessary details such as hostname/IP address, username, and password or SSH key.
+* Install Java: 
+`sudo yum install java-17* -y`
+* Install Java:
+`sudo yum install maven -y`
+* Install Tomcat:
+`wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.89/bin/apache-tomcat-9.0.89.tar.gz`
+`tar -xvzf ap...... `
 * Navigate to the Directory Containing the WAR File:
 Once connected, navigate to the directory on your local machine where the WAR file is located using the file browser in MobaXterm.
 * Transfer the WAR File to Your EC2 Instance:
@@ -169,12 +179,46 @@ In the dialog that appears, specify the destination directory on your EC2 instan
 * SSH into Your EC2 Instance: Once the file transfer is complete, switch to the SSH session tab in MobaXterm or open a new SSH session if needed to connect to your EC2 instance.
 * Deploy the WAR File to Tomcat: Follow the steps mentioned earlier to deploy the WAR file to Tomcat on your EC2 instance. This typically involves copying the WAR file to the webapps/ directory of Tomcat.
 * Access Your Application: After the deployment is successful, you can access your application using a web browser by navigating to the appropriate URL.
-`http://44.222.220.136:8080/index.jsp`
+`http://tomcatpublicipaddress:8080/index.jsp`
 * Username- meghana
 * Password- meghana123
-After successful login you will get redirect to other page with the URL `http://44.222.220.136:8080/dashboard.jsp`
+After successful login you will get redirect to other page with the URL `http://tomcatpublicipaddress:8080/dashboard.jsp`
+
+# Setting Up and Running a Maven Build on an EC2 Instance from a Git Repository 
+
+* Connect to Your EC2 Instance:
+Open MobaXterm and establish an SSH connection to your EC2 instance. Enter the necessary details such as hostname/IP address, username, and password or SSH key.
+# Install Java: 
+`sudo yum install java-17* -y`
+# Install Java:
+`sudo yum install maven -y`
+# Install Git:
+`sudo yum install git -y`
+# Install Tomcat:
+`wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.89/bin/apache-tomcat-9.0.89.tar.gz`
+`tar -xvzf ap...... `-untar
+# Clone Your Project from Git
+* Navigate to the Desired Directory: 
+`cd /home/ec2-user`
+* Clone the Git Repository:
+`git clone https://github.com/meghanakoturi/LOGIN-POC.git`
+`cd login`
+# Build Your Project with Maven:
+`mvn clean`- Run Maven Clean
+`mvn install`- Run Maven Install
+# Deploy the WAR File to Tomcat 
+* Copy the WAR File to Tomcat's Webapps Directory: sudo cp target/login.war /path/to/tomcat/webapps/
+* Move the login.war to ROOT.war in webapps
+* Start Tomcat: If Tomcat is not already running, start it with `sudo /path/to/tomcat/bin/startup.sh`
+* We can access the database from the above steps that are `MySQL Installation` `MySQL Configuration`.
+* * Access Your Application: After the deployment is successful, you can access your application using a web browser by navigating to the appropriate URL.
+`http://tomcatpublicipaddress:8080/index.jsp`
+* Username- meghana
+* Password- meghana123
+After successful login you will get redirect to other page with the URL `http://tomcatpublicipaddress:8080/dashboard.jsp`
 
 # Testing:
+
 * Login Functionality Testing:
 Verify that the login form is displayed correctly on the index.jsp page.
 * Test various scenarios:
@@ -201,6 +245,7 @@ Test your application across different web browsers (e.g., Chrome, Firefox, Safa
 Pay attention to any layout issues, UI discrepancies, or functionality gaps that may arise on specific browsers or devices.
 
 # Challenges Faced:
+
 * Setting up MySQL on EC2:
 Initially, configuring MySQL on the EC2 instance posed challenges, including installation, setup, and database creation.
 Managing database security and user permissions required additional attention.
@@ -224,6 +269,7 @@ Collaborating with team members and seeking support from peers and online commun
 Utilizing AWS support resources and documentation for EC2 and Tomcat troubleshooting proved beneficial in resolving deployment-related issues.
 
 # Conclusion:
+
 In this project, we successfully developed a web application with login functionality using a three-tier architecture. The application allowed users to log in securely and access a dashboard page based on their credentials. We utilized Java for backend logic, JSP for frontend presentation, and MySQL for database management.
 
 Through this project, we learned valuable skills in setting up and configuring MySQL on an EC2 instance, integrating MySQL with a Java web application, and deploying the application to Tomcat on the EC2 instance. We gained insights into database connectivity, error handling, and deployment automation.
