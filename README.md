@@ -196,7 +196,7 @@ Open MobaXterm and establish an SSH connection to your EC2 instance. Enter the n
 `sudo yum install git -y`
 # Install Tomcat:
 `wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.89/bin/apache-tomcat-9.0.89.tar.gz`
-`tar -xvzf ap...... `-untar
+`tar -xvzf apache-tomcat-9.0.80 `-untar
 # Clone Your Project from Git
 * Navigate to the Desired Directory: 
 `cd /home/ec2-user`
