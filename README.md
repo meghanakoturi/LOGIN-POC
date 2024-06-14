@@ -190,7 +190,7 @@ After successful login you will get redirect to other page with the URL `http://
 Open MobaXterm and establish an SSH connection to your EC2 instance. Enter the necessary details such as hostname/IP address, username, and password or SSH key.
 # Install Java: 
 `sudo yum install java-17* -y`
-# Install Java:
+# Install Maven:
 `sudo yum install maven -y`
 # Install Git:
 `sudo yum install git -y`
@@ -207,9 +207,9 @@ Open MobaXterm and establish an SSH connection to your EC2 instance. Enter the n
 `mvn clean`- Run Maven Clean
 `mvn install`- Run Maven Install
 # Deploy the WAR File to Tomcat 
-* Copy the WAR File to Tomcat's Webapps Directory: sudo cp target/login.war /path/to/tomcat/webapps/
-* Move the login.war to ROOT.war in webapps
-* Start Tomcat: If Tomcat is not already running, start it with `sudo /path/to/tomcat/bin/startup.sh`
+* Copy the WAR File to Tomcat's Webapps Directory: `sudo cp /home/ec2-user/LOGIN-POC/Login/target/login.war /home/ec2-user/apache-tomcat-9.0.89/webapps/`
+* Move the login.war to ROOT.war in webapps `mv Login.war ROOT.war`
+* Start Tomcat: If Tomcat is not already running, start it with `sudo /home/ec2-user/apache-tomcat-9.0.89/bin/startup.sh`
 * We can access the database from the above steps that are `MySQL Installation` `MySQL Configuration`.
 * * Access Your Application: After the deployment is successful, you can access your application using a web browser by navigating to the appropriate URL.
 `http://tomcatpublicipaddress:8080/index.jsp`
