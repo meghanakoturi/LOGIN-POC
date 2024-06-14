@@ -205,7 +205,7 @@ Open MobaXterm and establish an SSH connection to your EC2 instance. Enter the n
 `cd login`
 # Build Your Project with Maven:
 `mvn clean`- Run Maven Clean
-`mvn install`- Run Maven Install
+`mvn clean package`- Run Maven Clean Package
 # Deploy the WAR File to Tomcat 
 * Copy the WAR File to Tomcat's Webapps Directory: `sudo cp /home/ec2-user/LOGIN-POC/Login/target/login.war /home/ec2-user/apache-tomcat-9.0.89/webapps/`
 * Move the login.war to ROOT.war in webapps `mv Login.war ROOT.war`
