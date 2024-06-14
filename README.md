@@ -91,48 +91,72 @@ Through this project, we aim to exemplify the practical application of three-tie
 
 2. MySQL Installation:
 * Connect to your EC2 instance using SSH.
-* Update the package repository: `sudo yum update`.
+* Update the package repository:
+```
+sudo yum update
+```
 * Install MySQL server:
- `sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022`
- `wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm`
- `sudo yum localinstall -y mysql57-community-release-el7-8.noarch.rpm`
- `sudo yum install -y mysql-community-server`
+```
+ sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+ wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm
+ sudo yum localinstall -y mysql57-community-release-el7-8.noarch.rpm
+ sudo yum install -y mysql-community-server
+```
 * Start the MySQL service and enable it to start on boot:
- `sudo systemctl start mysqld`
- `sudo systemctl enable mysqld`
+```
+ sudo systemctl start mysqld
+ sudo systemctl enable mysqld
+```
 
 3. MySQL Configuration:
 * Retrieve the root password:
-  `sudo grep 'temporary password' /var/log/mysqld.log`
+```
+ sudo grep 'temporary password' /var/log/mysqld.log
+```
 * Log in to MYSQL:
- `mysql -u root -p`
+```
+ mysql -u root -p
+```
 * Change the root password:
-  `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MyNewPass1!';`
+```
+  ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MyNewPass1!';
+```
 * Create a new database for your application:
-  `CREATE DATABASE loginapp;`
-  ` USE loginapp;`
+```
+  CREATE DATABASE loginapp;
+  USE loginapp;
+```
 * Create tables:
-  `CREATE TABLE login (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL,
-    password VARCHAR(255) NOT NULL
-    );`
-  ` CREATE TABLE user (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL,
-    password VARCHAR(255) NOT NULL
-    );`
+```
+  CREATE TABLE login (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) NOT NULL,
+  password VARCHAR(255) NOT NULL
+  );
+```
+```
+   CREATE TABLE user (
+   id INT AUTO_INCREMENT PRIMARY KEY,
+   username VARCHAR(50) NOT NULL,
+   password VARCHAR(255) NOT NULL
+   );
+```
 * Insert data into the created tables:
-  `INSERT INTO login (username, password)
-   VALUES ('meghana', 'meghana123');`
-  `INSERT INTO users (username, password)
-   VALUES ('localhost', 'Localhost@123');`
-
+```
+  INSERT INTO login (username, password)
+  VALUES ('meghana', 'meghana123');
+```
+```
+  INSERT INTO users (username, password)
+  VALUES ('localhost', 'Localhost@123');
+```
 4. User Setup:
 * Create a new MySQL user and grant appropriate privileges on the database:
-  ` CREATE USER 'db_user'@'tomcatpublicipaddress' IDENTIFIED BY 'Apple@3005';`
-  `GRANT ALL PRIVILEGES ON loginapp.* TO 'db_user'@'tomcatpublicipaddress';`
-   `FLUSH PRIVILEGES;`
+```
+   CREATE USER 'db_user'@'tomcatpublicipaddress' IDENTIFIED BY 'Apple@3005';
+   GRANT ALL PRIVILEGES ON loginapp.* TO 'db_user'@'tomcatpublicipaddress';
+   FLUSH PRIVILEGES;
+```
 Here localhost is the other instance I'd where we deploy the war file
 
 # Implementation:
@@ -162,13 +186,22 @@ Path of the war file
 
 * Connect to Your EC2 Instance:
 Open MobaXterm and establish an SSH connection to your EC2 instance. Enter the necessary details such as hostname/IP address, username, and password or SSH key.
-* Install Java: 
-`sudo yum install java-17* -y`
 * Install Java:
-`sudo yum install maven -y`
+```
+ sudo yum install java-17* -y
+```
+* Install Java:
+```
+ sudo yum install maven -y
+```
 * Install Tomcat:
-`wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.89/bin/apache-tomcat-9.0.89.tar.gz`
-`tar -xvzf ap...... `
+```
+ wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.89/bin/apache-tomcat-9.0.89.tar.gz
+```
+* Untar:
+```
+ tar -xvzf apache-tomcat-9.0.89.tar.gz
+```
 * Navigate to the Directory Containing the WAR File:
 Once connected, navigate to the directory on your local machine where the WAR file is located using the file browser in MobaXterm.
 * Transfer the WAR File to Your EC2 Instance:
@@ -189,20 +222,34 @@ After successful login you will get redirect to other page with the URL `http://
 * Connect to Your EC2 Instance:
 Open MobaXterm and establish an SSH connection to your EC2 instance. Enter the necessary details such as hostname/IP address, username, and password or SSH key.
 # Install Java: 
-`sudo yum install java-17* -y`
+```
+ sudo yum install java-17* -y
+```
 # Install Maven:
-`sudo yum install maven -y`
+```
+ sudo yum install maven -y
+```
 # Install Git:
-`sudo yum install git -y`
+```
+ sudo yum install git -y
+```
 # Install Tomcat:
-`wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.89/bin/apache-tomcat-9.0.89.tar.gz`
-`tar -xvzf apache-tomcat-9.0.80 `-untar
+```
+ wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.89/bin/apache-tomcat-9.0.89.tar.gz
+```
+```
+ tar -xvzf apache-tomcat-9.0.80
+```
 # Clone Your Project from Git
 * Navigate to the Desired Directory: 
 `cd /home/ec2-user`
 * Clone the Git Repository:
-`git clone https://github.com/meghanakoturi/LOGIN-POC.git`
-`cd login`
+```
+ git clone https://github.com/meghanakoturi/LOGIN-POC.git
+```
+```
+ cd login
+```
 # Build Your Project with Maven:
 `mvn clean`- Run Maven Clean
 `mvn clean package`- Run Maven Clean Package
